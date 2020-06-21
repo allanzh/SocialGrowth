@@ -11,10 +11,23 @@ namespace SocialGrowth
     {
         public IWebDriver driver;
 
+        [TestInitialize]
+        public void Setup() 
+        {
+            driver = DriverFactory.GetDriver();
+            driver.Navigate().GoToUrl("https://google.com");
+        }
+
         [TestMethod]
         public void TestMethod1()
         {
-
         }
+
+        [TestCleanup]
+        public void Cleanup() 
+        {
+            DriverFactory.DestroyDriver();
+        }
+
     }
 }
