@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\DriverFactory.cs" />
+    <Compile Include="Base\MainpageObjects.cs" />
     <Compile Include="Base\TestBase.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="PageObjects\LoginPage.cs" />
