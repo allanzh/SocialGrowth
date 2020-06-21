@@ -1,32 +1,38 @@
 ﻿using System;
+using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using SocialGrowth.Base;
+using SocialGrowth.PageObjects;
 
 namespace SocialGrowth
 {
     [TestClass]
     public class Main
     {
-        public IWebDriver driver;
-
         [TestInitialize]
         public void Setup() 
         {
-            driver = DriverFactory.GetDriver();
-            driver.Navigate().GoToUrl("https://google.com");
+            TestBase.Initialize();
         }
 
         [TestMethod]
         public void TestMethod1()
         {
+            Login();
+            Thread.Sleep(15000);
+        }
+
+        private void Login()
+        {
+            LoginPage.SetUsername("");
+            LoginPage.SetPassword("");
+            LoginPage.ClickSubmit();
         }
 
         [TestCleanup]
         public void Cleanup() 
         {
-            DriverFactory.DestroyDriver();
+            TestBase.Finalize();
         }
 
     }
