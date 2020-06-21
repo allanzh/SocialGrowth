@@ -28,6 +28,7 @@ namespace SocialGrowth.Base
         public static void DestroyDriver()
         {
             driver.Close();
+            driver = null;
         }
 
     }
